@@ -13,6 +13,10 @@ body {
     line-height: 1.6;
 }
 
+#grad {
+    background-image: linear-gradient(red, yellow);
+  }
+
 /* Container styles */
 .container {
     max-width: 1200px;
