@@ -5,11 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Kim</title>
     <link rel="stylesheet" href="index.css">
+    <script src="typingEffect.js" defer></script>
 </head>
-<body id="grad">
-    <div class="container">
-        <h1>Welcome to My Website</h1>
-        <p>This is a simple HTML template.</p>
+<body>
+    <div class="gradient-text grid-container">  
+        <p class="item1" id="typing-text"></p>  
+        
+        <span class="button" onclick="transitionToPage('index2.html')">Run Code</span>
     </div>
+
+    <script>
+        // Call the typingEffect function when the DOM is fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('body').style.opacity = 1;
+
+            const element = document.getElementById("typing-text");
+            const text = 
+`def print_website_content(): 
+                print(img601.png)
+                print('Hi! My name is Daniel Kim.')
+                what_i_am = [undergraduate student, programmer, machine learning enthusiast]
+                for x in what_i_am:
+                        print(f'I am a {x}.')
+                what_you_can_do = [Resume/CV, Expiriences, Projects, Profiles, Contanct Me]
+                for y in what_you_can_do: 
+                        print(y)
+print_website_content()`
+            const delay = 23; // Delay in milliseconds between each character
+            typingEffect(element, text, delay);
+        });
+    </script>
 </body>
 </html>
+
+

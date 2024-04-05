@@ -7,21 +7,109 @@
 
 /* Body styles */
 body {
+    opacity: 0.0;
+    transition: opacity 10s;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    color: #fff;
+    height: 100vh;
+    width:98vw;
     line-height: 1.6;
 }
 
-#grad {
-    background-image: linear-gradient(red, yellow);
+/*page transitions*/
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.page.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gradient-text {
+    background-image: linear-gradient(45deg, #e05c53, #e05c53, #f0883e,#edb93e, #badb58, #5fdb58, #58dbbd,#35a4e8, #be70fa, #ed45d1, #e05c53, #e05c53);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    background-size: 800%;
+    background-position: 0%;
+
+    animation: animatedText 60s infinite;
+}
+
+@keyframes animatedText {
+    to {
+        background-position: -100%;
+    }
+}
+
+#background {
+    background:
+    linear-gradient(to bottom right, rgba(54, 50, 50, 1), rgba(54, 50, 50, 0.3)), 
+    url("assets/first_pro.gif");
+    background-repeat: no-repeat;
+
+    background-size: 100% 100%;
+
+    float: left;
+
+    width: 100vw;
   }
 
+
+#typing-text {
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    white-space: pre-wrap;
+    overflow: hidden;
+
+    animation: typing 2s steps(40);
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
 /* Container styles */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.item1 {
+    grid-area: myArea;
+}
+
+.grid-container {
+    display: grid;
+    grid-template: 
+    'myArea myArea myArea myArea myArea myArea'
+    '. . . . . .';
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template: 
+    '. . . . . .';
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+/*img styles*/
+img {
+    max-width: 20vw;
+    max-height: 20vh;
+    border-radius: 50%;
 }
 
 /* Heading styles */
@@ -45,9 +133,11 @@ a:hover {
 }
 
 /* Button styles */
+
 .button {
     display: inline-block;
     padding: 10px 20px;
+    max-height: 10vh;
     background-color: #007bff;
     color: #fff;
     border: none;
