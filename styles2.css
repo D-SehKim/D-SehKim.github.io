@@ -15,8 +15,50 @@ body {
     background:
     linear-gradient(to bottom right, rgba(0, 0, 0), rgb(0, 0, 0, 0.93), rgba(0, 0, 0));
 
-    background-size: 100% 100%;
+    background-size: auto;
+    background-attachment: fixed;
 }
+
+.container {
+    display: inline-flex; /* or inline-flex */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 4vw;
+    max-width: min-content;
+  }
+
+/*link styles*/
+a {
+    text-decoration: underline;
+    outline-color: transparent;
+    color: transparent;
+  }
+  
+  a:link {
+    text-decoration: underline;
+    color: #ffffff;
+  }
+  
+  a:visited {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  
+  a:focus {
+    text-decoration: none;
+    background: #ffffff;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10%;
+  }
+  
+  a:active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
 
 /*setting up grid layout*/
 header {
@@ -36,7 +78,7 @@ nav {
     max-height: 40vh;
     width: 100vw;
     display: inline-block;
-    padding-left: 20%;
+    padding-left: 25vw;
     justify-content: center;
 }
 footer {
