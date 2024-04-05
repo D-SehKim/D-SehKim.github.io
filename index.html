@@ -54,7 +54,7 @@
           height: 100%;
           z-index: 999999;
           pointer-events: none;
-          background: white;
+          background: rgb(0, 0, 0);
           animation-duration: 1000ms;
           animation-timing-function: ease-in-out;
         }
@@ -114,9 +114,9 @@
 `def print_website_content(): 
                 print(img601.png)
                 print('Hi! My name is Daniel Kim.')
-                what_i_am = [undergraduate student, programmer, machine learning enthusiast]
+                what_i_am = [student, programmer, machine learning enthusiast, workshop educator]
                 for x in what_i_am:
-                        print(f'I am a(n) {x}.')
+                        print(f'I am a {x}.')
                 what_you_can_do = [Resume/CV, Expiriences, Projects, Profiles, Contact Me]
                 for y in what_you_can_do: 
                         print(y)
@@ -128,7 +128,7 @@ print_website_content()`
         document.addEventListener("animationstart", function() {
             setTimeout(function() {
                 document.getElementById('content').style.display = 'block';
-            }, 12000);
+            }, 11000);
         });
 
 
