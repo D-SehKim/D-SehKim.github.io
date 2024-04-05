@@ -7,8 +7,6 @@
 
 /* Body styles */
 body {
-    opacity: 0.0;
-    transition: opacity 10s;
     font-family: Arial, sans-serif;
     color: #fff;
     height: 100vh;
@@ -17,27 +15,11 @@ body {
 }
 
 /*page transitions*/
-.page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
 
-.page.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
+
 
 .gradient-text {
-    background-image: linear-gradient(45deg, #e05c53, #e05c53, #f0883e,#edb93e, #badb58, #5fdb58, #58dbbd,#35a4e8, #be70fa, #ed45d1, #e05c53, #e05c53);
+    background-image: linear-gradient(45deg, #e05c53,#e05c53, #e05c53, #f0883e,#edb93e, #badb58, #5fdb58, #58dbbd,#35a4e8, #be70fa, #ed45d1, #e05c53, #e05c53);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -97,14 +79,6 @@ body {
     padding: 10px;
 }
 
-.grid-container2 {
-    display: grid;
-    grid-template: 
-    '. . . . . .';
-    grid-gap: 10px;
-    padding: 10px;
-}
-
 /*img styles*/
 img {
     max-width: 20vw;
@@ -132,19 +106,75 @@ a:hover {
     text-decoration: underline;
 }
 
+
+
 /* Button styles */
-
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    max-height: 10vh;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+.cssbuttons-io {
+    position: relative;
+    display: none;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    border-radius: 0.8em;
     cursor: pointer;
+    border: none;
+    
+    background: linear-gradient(45deg, #e05c53, #e05c53, #e05c53, #e05c53, #f0883e,#edb93e, #badb58, #5fdb58, #58dbbd,#35a4e8, #be70fa, #ed45d1, #e05c53);
+
+    background-size: 1000%;
+    background-position: 0%;
+
+    animation: animatedText 10s infinite;
+    color: ghostwhite;
+    overflow: hidden;
 }
 
-.button:hover {
-    background-color: #0056b3;
-}
+@keyframes animatedText {
+    to {
+        background-position: -100%;
+    };
+  }
+  
+  .cssbuttons-io svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+  }
+  
+  .cssbuttons-io span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8em 1.2em 0.8em 1.05em;
+  }
+  
+  .cssbuttons-io::before,
+  .cssbuttons-io::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .cssbuttons-io::before {
+    content: "";
+    background: #000;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  }
+  
+  .cssbuttons-io:hover::before {
+    transform: translate3d(100%, 0, 0);
+  }
+  
+  .cssbuttons-io:active {
+    transform: scale(0.95);
+  }
+  

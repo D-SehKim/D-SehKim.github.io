@@ -4,21 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Kim</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="typingEffect.js" defer></script>
+    <script>
+        function fadeInPage() {
+          if (!window.AnimationEvent) { return; }
+          var fader = document.getElementById('fader');
+          fader.classList.add('fade-out');
+        }
+  
+        document.addEventListener('DOMContentLoaded', function() {
+          if (!window.AnimationEvent) { return }
+  
+          var anchors = document.getElementsByTagName('a');
+  
+          for (var idx=0; idx<anchors.length; idx+=1) {
+            if (anchors[idx].hostname !== window.location.hostname) {
+              continue;
+            }
+  
+            anchors[idx].addEventListener('click', function(event) {
+              var fader = document.getElementById('fader'),
+                  anchor = event.currentTarget;
+  
+              var listener = function() {
+                window.location = anchor.href;
+                fader.removeEventListener('animationend', listener);
+              };
+              fader.addEventListener('animationend', listener);
+  
+              event.preventDefault();
+              fader.classList.add('fade-in');
+            });
+          }
+        });
+  
+        window.addEventListener('pageshow', function (event) {
+          if (!event.persisted) {
+            return;
+          }
+          var fader = document.getElementById('fader');
+          fader.classList.remove('fade-in');
+        });
+    </script>
+    <style>
+        #fader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 999999;
+          pointer-events: none;
+          background: white;
+          animation-duration: 1000ms;
+          animation-timing-function: ease-in-out;
+        }
+  
+        #fader:before {
+          content: 'fade'
+        }
+  
+        @keyframes fade-out {
+          from { opacity: 1 }
+          to { opacity: 0 }
+        }
+  
+        @keyframes fade-in {
+          from { opacity: 0 }
+          to { opacity: 1 }
+        }
+  
+        #fader.fade-out {
+          opacity: 0;
+          animation-name: fade-out;
+        }
+  
+        #fader.fade-in {
+          opacity: 1;
+          animation-name: fade-in;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
+    <svg id="fader"></svg>
+    <script>fadeInPage()</script>
     <div class="gradient-text grid-container">  
         <p class="item1" id="typing-text"></p>  
-        
-        <span class="button" onclick="transitionToPage('index2.html')">Run Code</span>
+        <a id="link" href="index2.html">
+            <button id="content" class="cssbuttons-io">
+                <span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                  Run Code</span>
+              </button>
+              
+        </a>
     </div>
 
     <script>
         // Call the typingEffect function when the DOM is fully loaded
         document.addEventListener("DOMContentLoaded", function() {
-            document.querySelector('body').style.opacity = 1;
-
             const element = document.getElementById("typing-text");
             const text = 
 `def print_website_content(): 
@@ -26,14 +116,22 @@
                 print('Hi! My name is Daniel Kim.')
                 what_i_am = [undergraduate student, programmer, machine learning enthusiast]
                 for x in what_i_am:
-                        print(f'I am a {x}.')
-                what_you_can_do = [Resume/CV, Expiriences, Projects, Profiles, Contanct Me]
+                        print(f'I am a(n) {x}.')
+                what_you_can_do = [Resume/CV, Expiriences, Projects, Profiles, Contact Me]
                 for y in what_you_can_do: 
                         print(y)
 print_website_content()`
             const delay = 23; // Delay in milliseconds between each character
             typingEffect(element, text, delay);
         });
+
+        document.addEventListener("animationstart", function() {
+            setTimeout(function() {
+                document.getElementById('content').style.display = 'block';
+            }, 12000);
+        });
+
+
     </script>
 </body>
 </html>
