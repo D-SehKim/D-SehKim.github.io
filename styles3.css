@@ -54,6 +54,51 @@ body {
     outline: none;
 }
 
-#send-button:hover {
+#send-button.loading {
+    cursor: not-allowed;
     background-color: #0056b3;
+}
+
+#send-button.loading::after {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.chat-message {
+    max-width: 75%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
+.chat-message.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.chat-message.other {
+    background-color: #e0e0e0;
+    color: black;
+    align-self: flex-start;
+}
+
+.chat-message.typing {
+    background-color: #e0e0e0;
+    color: black;
+    align-self: flex-start;
+    font-style: italic;
 }
