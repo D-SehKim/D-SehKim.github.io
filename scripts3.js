@@ -12,36 +12,15 @@ document.getElementById('message-input').addEventListener('keypress', function(e
     }
 });
 
-async function translate_to_korean(text_to_translate) {
-
-    const { text } = await translate(text_to_translate, { to: 'ko' });
-
-    return text;
-}
-
-async function translate_to_english(text_to_translate) {
-
-    const { text } = await translate(text_to_translate, { to: 'en' });
-
-    return text;
-}
-
 let isUserMessage = true;
 
-function sendMessage() {
+async function sendMessage() {
     const messageInput = document.getElementById('message-input');
-    const message = messageInput.value.trim();
+    let message = messageInput.value.trim();
 
     if (message) {
-        const chatBox = document.getElementById('chat-box');
-        const messageElement = document.createElement('div');
-        messageElement.className = 'chat-message user';
-        const translatedMessage = translate_to_korean(message);
-        messageElement.textContent = translatedMessage;
-
-        chatBox.appendChild(messageElement);
-        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
-
+        const translatedMessage = await translate_to_korean(message);
+        addMessageToChat(translatedMessage, 'user');
         messageInput.value = '';
         toggleSendButtonLoading(true);
 
@@ -64,25 +43,42 @@ function showTypingBubble() {
     const typingBubble = document.createElement('div');
     typingBubble.className = 'chat-message typing';
     typingBubble.id = 'typing-bubble';
-    typingBubble.textContent = 'Zero is typing...';
+    typingBubble.textContent = 'The other person is typing...';
 
     chatBox.appendChild(typingBubble);
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
 }
 
-function receiveMessage() {
+async function receiveMessage() {
     const chatBox = document.getElementById('chat-box');
     const typingBubble = document.getElementById('typing-bubble');
     if (typingBubble) {
         chatBox.removeChild(typingBubble);
     }
 
+    const replyMessage = "This is a reply message.";
+    const translatedReply = await translateText(replyMessage, 'ko');
+    addMessageToChat(translatedReply, 'other');
+
+    toggleSendButtonLoading(false);
+}
+
+async function translate_to_korean(text) {
+    try {
+        const { text: translatedText } = await translate(text, { to: 'ko' });
+        return translatedText;
+    } catch (error) {
+        console.error('Translation error:', error);
+        return text; // Fallback to original text if translation fails
+    }
+}
+
+function addMessageToChat(message, sender) {
+    const chatBox = document.getElementById('chat-box');
     const messageElement = document.createElement('div');
-    messageElement.className = 'chat-message other';
-    messageElement.textContent = 'This is a reply message.';
+    messageElement.className = `chat-message ${sender}`;
+    messageElement.textContent = message;
 
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
-
-    toggleSendButtonLoading(false);
 }
