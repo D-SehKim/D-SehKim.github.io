@@ -1,3 +1,5 @@
+import { translate } from '@vitalets/google-translate-api';
+
 document.getElementById('send-button').addEventListener('click', function() {
     if (!this.classList.contains('loading')) {
         sendMessage();
@@ -10,6 +12,20 @@ document.getElementById('message-input').addEventListener('keypress', function(e
     }
 });
 
+async function translate_to_korean(text_to_translate) {
+
+    const { text } = await translate(text_to_translate, { to: 'ko' });
+
+    return text;
+}
+
+async function translate_to_english(text_to_translate) {
+
+    const { text } = await translate(text_to_translate, { to: 'en' });
+
+    return text;
+}
+
 let isUserMessage = true;
 
 function sendMessage() {
@@ -20,7 +36,8 @@ function sendMessage() {
         const chatBox = document.getElementById('chat-box');
         const messageElement = document.createElement('div');
         messageElement.className = 'chat-message user';
-        messageElement.textContent = message;
+        const translatedMessage = translate_to_korean(message);
+        messageElement.textContent = translatedMessage;
 
         chatBox.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
