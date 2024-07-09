@@ -24,30 +24,6 @@ function sendMessage() {
 
         chatBox.appendChild(messageElement);
 
-
-        fetch('/api/translate/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                text: message,
-                target_language: 'ko'
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.translated_text) {
-                document.getElementById('chat-box').innerText = data.translated_text;
-            } else {
-                document.getElementById('result').innerText = 'Error: ' + data.error;
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-
-
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
 
         messageInput.value = '';
