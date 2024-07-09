@@ -10,6 +10,32 @@ document.getElementById('message-input').addEventListener('keypress', function(e
     }
 });
 
+
+// script.js
+
+function sendData(userInput) {
+    // Send a POST request to Flask backend using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/process_input', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                var message = response.message;
+                // Update the DOM with the received message
+
+                return message;
+            } else {
+                console.error('Error:', xhr.status);
+            }
+        }
+    };
+    xhr.send(JSON.stringify({ userInput: userInput }));
+}
+
+
+
 let isUserMessage = true;
 
 function sendMessage() {
@@ -23,14 +49,15 @@ function sendMessage() {
         messageElement.textContent = message;
 
         chatBox.appendChild(messageElement);
-
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
 
         messageInput.value = '';
         toggleSendButtonLoading(true);
+        showTypingBubble();
 
-        setTimeout(showTypingBubble, 1000); // Simulate typing delay
-        setTimeout(receiveMessage, 6000); // Simulate response delay
+        let ai_response = sendData(message)
+
+        receiveMessage(ai_response);
     }
 }
 
@@ -54,7 +81,7 @@ function showTypingBubble() {
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
 }
 
-function receiveMessage() {
+function receiveMessage(message) {
     const chatBox = document.getElementById('chat-box');
     const typingBubble = document.getElementById('typing-bubble');
     if (typingBubble) {
@@ -63,7 +90,7 @@ function receiveMessage() {
 
     const messageElement = document.createElement('div');
     messageElement.className = 'chat-message other';
-    messageElement.textContent = 'This is a reply message.';
+    messageElement.textContent = message;
 
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
