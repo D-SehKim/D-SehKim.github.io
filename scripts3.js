@@ -31,8 +31,8 @@ function sendMessage() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                text: text,
-                target_language: targetLanguage
+                text: message,
+                target_language: 'ko'
             })
         })
         .then(response => response.json())
