@@ -24,8 +24,7 @@ function sendData(userInput) {
                 var response = JSON.parse(xhr.responseText);
                 var message = response.message;
                 // Update the DOM with the received message
-
-                return message;
+                receiveMessage(message);
             } else {
                 console.error('Error:', xhr.status);
             }
@@ -33,7 +32,6 @@ function sendData(userInput) {
     };
     xhr.send(JSON.stringify({ userInput: userInput }));
 }
-
 
 
 let isUserMessage = true;
@@ -55,9 +53,7 @@ function sendMessage() {
         toggleSendButtonLoading(true);
         showTypingBubble();
 
-        let ai_response = sendData(message)
-
-        receiveMessage(ai_response);
+        sendData(message)
     }
 }
 
