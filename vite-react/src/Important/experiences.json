@@ -1,0 +1,12 @@
+[
+    {
+      "title": "Zentropy Software Intern (Jun. 2024 - Aug. 2024)",
+      "description": "During my technical internship at Zentropy, I gained hands-on experience in e-bike maintenance, battery management, and product packaging. I developed technical skills in programming microcontrollers using C with the STM32 IDE, creating Python scripts for data management and API integration, and developing a chatbot prototype using AI. My contributions included improving e-bike and battery systems, automating data processes, and laying the groundwork for AI-driven customer interaction tools. This experience enhanced my problem-solving, collaboration, and time management skills, and solidified my interest in a career that blends hardware and software development.",
+      "link": "https://www.linkedin.com/company/zentropyemobility/"
+    },
+    {
+      "title": "HackUMass Presenter (Nov. 2023 - Nov. 2023)",
+      "description": "Led a workshop at HackUMass for over 40 participants, covering the fundamentals of neural network architecture. Provided an introduction to neural networks and guided attendees through building their own models.",
+      "link": "https://docs.google.com/presentation/d/1QaCdb0KGh6I6ON3\nyrGcWLog6l4zFA0fAqdClBiRl5fU/edit?usp=sharing"
+    }
+  ]

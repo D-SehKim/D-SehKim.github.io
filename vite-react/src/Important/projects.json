@@ -1,0 +1,27 @@
+[
+    {
+      "title": "RevUMass (Aug. 2024 - Present)",
+      "description": "A platform for students at the University of Massachusetts Amherst to discover and share ideas and opinions regarding on-campus life. Currently in-progress since September 2024. \n\nRevUMass is a full-stack application built with React for the user interface, Express for the RESTful API, and MongoDB for data storage. Written by Ethan Pham and Daniel Kim.",
+      "link": "https://github.com/EPham42747/RevUMass"
+    },
+    {
+      "title": "A Dashing Knight (Aug. 2024 - Aug. 2024)",
+      "description": "A Dashing Knight is a fast-paced 2D platformer where players take control of a brave knight on a mission to collect magical fruit and defeat ghostly enemies. Developed alone by Daniel Kim in just 48 hours, this game combines quick reflexes and strategic thinking as you dash through levels, avoiding danger and collecting fruit to advance.",
+      "link": "https://github.com/D-SehKim/A-Dashing-Knight"
+    },
+    {
+      "title": "TypeWriter (Aug. 2024 - Aug. 2024)",
+      "description": "TypeWriter is a Python project that leverages the power of the Tesseract AI library to enable typing at an impressive speed of 400 words per minute. This tool can be particularly useful for transcription tasks or for enhancing typing efficiency.",
+      "link": "https://github.com/D-SehKim/TypeWriter"
+    },
+    {
+      "title": "Data Organizer (Jun. 2024 - July. 2024)",
+      "description": "Created a data organizer during my internship at Zentropy, a Python-based tool that requests data from a backend server, processes it using the Pandas library, and exports the organized data into a well-formatted Excel file. This software simplifies data handling, making it easy to collect, clean, and structure information for analysis or reporting.  \n\nSadly due to sensitive info, the project cannot be linked",
+      "link": ""
+    },
+    {
+      "title": "LockIn (Nov. 2023 - Nov. 2023)",
+      "description": "LockIn uses the computer's webcam along with a in-house trained CNN in order to detect when the user's attention leaves the screen in front of them.",
+      "link": "https://github.com/D-SehKim/LockIn"
+    }
+  ]

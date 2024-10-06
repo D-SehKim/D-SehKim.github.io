@@ -1,0 +1,20 @@
+.container {
+    overflow: hidden; /* Prevents overflow during transition */
+    transition: max-height 0.3s ease; /* Animation for max-height */
+    max-height: 0; /* Initial state is collapsed */
+  }
+
+.total {
+    color: #772a2a;
+    background-color: #FFC4D0; /* Pastel pink */    
+    padding-top: 1px;
+    padding-left: 30px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-right: 60px;
+    text-align: left;
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
