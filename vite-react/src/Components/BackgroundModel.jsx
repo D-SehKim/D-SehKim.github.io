@@ -8,19 +8,10 @@ const BackgroundModel = () => {
 
   let default_speed = 0.0002;
 
-  window.addEventListener('scroll', function() {
-    default_speed = 0.002;
-  });
-
-  window.addEventListener("scrollend", function() {
-    default_speed = 0.0002;
-  });
-
   useFrame(() => {
     // Rotate the model slightly over time if needed
     modelRef.current.rotation.y += default_speed;
   });
-
 
   return (
     <primitive
