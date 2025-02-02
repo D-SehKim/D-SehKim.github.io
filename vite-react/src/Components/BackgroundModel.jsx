@@ -6,7 +6,7 @@ import { useGLTF } from '@react-three/drei';
 
 const BackgroundModel = () => {
   const modelRef = useRef();
-  const { scene } = useGLTF('./public/sakura.glb'); // Make sure to replace with your model's pat
+  const { scene } = useGLTF('./assets/sakura.glb'); // Make sure to replace with your model's pat
 
   let default_speed = 0.0002;
 
@@ -32,7 +32,6 @@ export default function Background() {
       style={{ position: 'fixed', top: 0, left: 0, zIndex: -1, background:'#f0ebe3'}}
     > 
       <ambientLight intensity={3} />
-      <BackgroundModel />
     </Canvas>
   );
 }
