@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { Suspense } from 'react';
+import { OrbitControls, Loader } from '@react-three/drei';
 import { useGLTF } from '@react-three/drei';
 
 const BackgroundModel = () => {
   const modelRef = useRef();
-  const { scene } = useGLTF('./sakura1.glb'); // Make sure to replace with your model's pat
+  const { scene } = useGLTF('./public/sakura.glb'); // Make sure to replace with your model's pat
 
   let default_speed = 0.0002;
 
