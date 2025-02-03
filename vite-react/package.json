@@ -1,14 +1,14 @@
 {
+  "homepage": "https://d-sehkim.github.io",
   "name": "vite-react",
   "private": true,
-  "homepage": "https://d-sehkim.github.io/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

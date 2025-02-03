@@ -19,6 +19,7 @@ section {
 }
 
 footer {
+  background-color:#f0ebe3; /* Same background as the grid container */
   text-align: center;
   color: brown;
 }

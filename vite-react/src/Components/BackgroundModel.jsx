@@ -20,7 +20,7 @@ const BackgroundModel = () => {
       object={scene}
       ref={modelRef}
       scale={[5, 5, 5]} // Adjust the scale of the model to fit the background
-      position={[2, -20, -30]} // Position it further back
+      position={[0, -20, -30]} // Position it further back
     />
   );
 };
