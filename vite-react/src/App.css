@@ -7,6 +7,10 @@ header {
   font-weight: bold;
 }
 
+#backgorund-div {
+  background-color:#f0ebe3; /* Same background as the grid container */
+}
+
 section {
   width:100vw;
   background-color:#f0ebe3; /* Same background as the grid container */

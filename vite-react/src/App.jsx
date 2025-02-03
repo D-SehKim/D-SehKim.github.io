@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
 import Toggle from './Components/Toggle';
-import Background from './Components/BackgroundModel';
 
 function App() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="App">
-      <Background />
+    <div className="App" id="backgorund-div">
       <title>
         Daniel Kim
       </title>
@@ -45,8 +43,7 @@ function App() {
       />
       <footer>
         @{currentYear} Copyright - Daniel Kim<br></br>
-        "Sakura / Cherry Blossom (桜の木)" (https://skfb.ly/oPoI7) by 18gen is licensed under<br></br> Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-        <br></br>>https://upload.wikimedia.org/wikipedia/commons/8/87/Sakura.svg
+        <br></br>https://upload.wikimedia.org/wikipedia/commons/8/87/Sakura.svg
       </footer>
     </div>
   );
