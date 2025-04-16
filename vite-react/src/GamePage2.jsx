@@ -3,9 +3,12 @@ import { useEffect } from "react"
 function GamePage2() {
     useEffect(() => {
         const handleMessage = (event) => {
+        console.log("hello3")
         if (event.data?.showPC) {
+            console.log('hello2')
             document.getElementById('virtual-pc').style.display = "block"
         }
+
         if (event.data?.showPC == false) {
             document.getElementById('virtual-pc').style.display = "none"
         }
