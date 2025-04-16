@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
-import GamePage from './Gamepage.jsx' // create this next
-import HomePage from './Homepage.jsx' // move your existing content here
+import GamePage from './GamePage.jsx' // create this next
+import HomePage from './HomePage.jsx' // move your existing content here
+import Prototype from './Protoype.jsx'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/game" element={<GamePage />} />
-      <Route path="/prototype" element={<Prototypes />} />
+      <Route path="/prototype" element={<Prototype />} />
     </Routes>
   )
 }
