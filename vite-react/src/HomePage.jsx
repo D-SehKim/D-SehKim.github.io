@@ -45,6 +45,7 @@ function HomePage() {
       <footer>
         @{currentYear} Copyright - Daniel Kim<br></br>
         <br></br>https://upload.wikimedia.org/wikipedia/commons/8/87/Sakura.svg
+        <br></br><a href="https://d-sehkim.github.io/prototype/">proto</a>
       </footer>
     </div>
   );
