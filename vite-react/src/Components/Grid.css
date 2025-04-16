@@ -1,15 +1,15 @@
 /* Soft white background */
   .grid-box {
     background-color: #F3D0D7; /* Pastel pink */    
-    padding: 20px;
+    padding: 5%;
     text-align: left;
     border-radius: 8px; /* Optional rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
-    min-width: 40vw;
+    min-width: 10vw;
     min-height: 10vh;
     max-width: 40vw;
-    max-height: 100vh;
-    margin: 20px;
+    max-height: 10000vh;
+    margin: 5%;
   }
 
   .grid-box-description {
