@@ -10,12 +10,11 @@ html, body, #canvas {
 	padding: 0;
 	border: 0;
 }
-
 iframe {
-	display: none;
-	position: relative;
-	border: none;
-	z-index: 1;
+			display: none;
+			position: relative;
+			border: none;
+			z-index: 1;
 }
 
 body {
@@ -112,7 +111,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":28436240,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":28436272,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[]};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -204,7 +203,7 @@ const engine = new Engine(GODOT_CONFIG);
 					statusProgress.removeAttribute('max');
 				}
 			},
-			canvas: canvasElement,
+			canvas: canvasElement
 		}).then(() => {
 			setStatusMode('hidden');
 		}, displayFailureNotice);
