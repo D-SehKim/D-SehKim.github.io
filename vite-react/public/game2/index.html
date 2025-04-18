@@ -3,12 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>BrackeyGameJam</title>
+		<title>Daniel Kim</title>
 		<style>
 html, body, #canvas {
 	margin: 0;
 	padding: 0;
 	border: 0;
+}
+
+iframe {
+	display: block;
+	position: relative;
+	border: none;
+	z-index: 1;
 }
 
 body {
@@ -81,9 +88,17 @@ body {
 
 	</head>
 	<body>
-		<canvas id="canvas">
-			Your browser does not support the canvas tag.
-		</canvas>
+		<div>
+			<iframe id="virtual-pc" 
+					src="https://d-sehkim.github.io/" 
+					style="width: 70vw; height: 87vh; top: 3.5vh; left: 15vw;">
+				No iframe
+			</iframe>
+
+			<canvas id="canvas" style="z-index: 0;">
+				Your browser does not support the canvas tag.
+			</canvas>
+		</div>
 
 		<noscript>
 			Your browser does not support JavaScript.
@@ -97,7 +112,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":28442176,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":28436240,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[]};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -178,6 +193,7 @@ const engine = new Engine(GODOT_CONFIG);
 		}
 	} else {
 		setStatusMode('progress');
+		const canvasElement = document.querySelector("#canvas");
 		engine.startGame({
 			'onProgress': function (current, total) {
 				if (current > 0 && total > 0) {
@@ -188,6 +204,7 @@ const engine = new Engine(GODOT_CONFIG);
 					statusProgress.removeAttribute('max');
 				}
 			},
+			canvas: canvasElement,
 		}).then(() => {
 			setStatusMode('hidden');
 		}, displayFailureNotice);
